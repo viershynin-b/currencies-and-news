@@ -135,7 +135,7 @@ const ConvertorMain = () => {
 
   const callFetchAndCompute = useCallback(
     async (amount1: string, currency1: string, currency2: string) => {
-      // we expect to receive these vars as params (though they are available in outer func scope) in order not to put them into dependencies` array, avoiding the excesive re-evaluations and re-creations of our cb func  
+      // we expect to receive these vars as params (though they are available in outer func scope) in order not to put them into dependencies` array, avoiding the excesive re-evaluations and re-creations of our cb func
       const res = await fetchPrivatAPI();
       convertorComputations(amount1, currency1, currency2, res);
     },
@@ -147,7 +147,7 @@ const ConvertorMain = () => {
     timer = setTimeout(() => {
       setIsComputationInProgress(true);
       callFetchAndCompute(amount1, currency1, currency2);
-      // we expect to receive these vars as params (though they are available in outer func scope) in order not to put them into dependencies` array, avoiding the excesive re-evaluations and re-creations of our cb func  
+      // we expect to receive these vars as params (though they are available in outer func scope) in order not to put them into dependencies` array, avoiding the excesive re-evaluations and re-creations of our cb func
     }, 500);
 
     return () => {
@@ -224,12 +224,14 @@ const ConvertorMain = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          padding: "20px",
+          padding: "20px 40px",
           margin: "0 40px 20px 40px",
           boxShadow: 3,
           borderRadius: "10px",
           fontSize: { xs: "15px", sm: "20px" },
           fontWeight: "700",
+          width: { xs: "216px", sm: "366px", md: "770px", lg: "966px" },
+          textAlign: "-webkit-center",
         }}
       >
         {`${amount1} ${currency1} to ${currency2} rate on ${currentData()}:`}
@@ -240,7 +242,7 @@ const ConvertorMain = () => {
           flexDirection: "column",
           alignItems: "center",
           padding: "40px",
-          margin: "0 40px",
+          margin: "0 40px 20px 40px",
           boxShadow: 3,
           borderRadius: "10px",
         }}

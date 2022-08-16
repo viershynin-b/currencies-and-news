@@ -6,12 +6,11 @@ interface IStyledHeader {
 
 const StyledHeader = styled.div<IStyledHeader>`
   height: 80px;
-  @media screen and (max-width: 599px) {
-    height: 70px;
-  }
-  @media screen and (max-width: 369px) {
+
+  @media screen and (max-width: 409px) {
     height: 90px;
   }
+
   a {
     margin: 0 10px 0 0;
     padding: 5px 0px 6px 0px;
@@ -24,12 +23,11 @@ const StyledHeader = styled.div<IStyledHeader>`
   a:hover {
     border-bottom: ${(props) =>
       props.isLoggedIn ? "1.5px solid white" : "none"};
-    /* border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3); */
   }
   .toolbar {
     display: flex;
     justify-content: space-between;
+    min-height: 64px;
   }
   #convertor-btn {
     color: ${(props) => (props.isLoggedIn ? "white" : "darkgray")};

@@ -20,6 +20,15 @@ const theme = createTheme({
       main: "#E57F84;",
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 700,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 });
 
 const root = ReactDOM.createRoot(

@@ -16,7 +16,7 @@ interface IInitAuthState {
 
 const serverStatus = sessionStorage.getItem("isUserAuthenticated");
 
-const status = serverStatus !== null && serverStatus === "false" ? false : true;
+const status = serverStatus ? true : false;
 
 const initialState: IInitAuthState = {
   userList: [
@@ -43,12 +43,12 @@ export const authSlice = createSlice({
   reducers: {
     userLogInLogOut(state) {
       state.isLoggedIn = !state.isLoggedIn;
-      console.log("isUserAuthenticated", state.isLoggedIn);
-
-      sessionStorage.setItem(
-        "isUserAuthenticated",
-        JSON.stringify(state.isLoggedIn)
-      );
+      state.isLoggedIn
+        ? sessionStorage.setItem(
+            "isUserAuthenticated",
+            JSON.stringify(state.isLoggedIn)
+          )
+        : sessionStorage.removeItem("isUserAuthenticated");
     },
   },
   extraReducers: (builder) => {
@@ -68,7 +68,6 @@ export const authSlice = createSlice({
       // add catch error logic
     });
   },
-  
 });
 export const authActions = authSlice.actions;
 
